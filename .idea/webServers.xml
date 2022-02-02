@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d3ee2f08-a5ce-4fc5-9877-14e94207a484" name="top.pleiades.uni-wuppertal.de">
+        <fileTransfer rootFolder="/beegfs/bashir/standalone/software" accessType="SFTP" host="top.pleiades.uni-wuppertal.de" port="22" sshConfigId="dbd04458-4f8c-4a9d-8774-3d7fc4e8a6bd" sshConfig="bashir@top.pleiades.uni-wuppertal.de">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
