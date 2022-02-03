@@ -1,10 +1,13 @@
+import dask.dataframe as dd
 import pandas as pd
+import re
+import numpy as np
+import os
+import time
+import seaborn as sns
+os.chdir("../dataset")
+columns = ['PDG ID', 'Px', 'Py', 'Pz', 'E', 'm', 'Status']
 
-# initialize list of lists
-data = [['tom', 10], ['nick', 15], ['juli', 14]]
-
-# Create the pandas DataFrame
-df = pd.DataFrame(data, columns=['Name', 'Age'])
-
-# print dataframe.
-df
+df = dd.read_parquet('myfile3.parquet', engine='pyarrow', npartitions=2)
+df = df.loc[0:1000,:]
+df.to_parquet('clustertest.parquet', engine='pyarrow')
