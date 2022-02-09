@@ -1,3 +1,4 @@
 
-/dataset/myfile2.parquet
-/dataset/datasettest.txt
+
+/dataset/
+/code/jupyter notebooks/.ipynb_checkpoints/
