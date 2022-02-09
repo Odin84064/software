@@ -7,6 +7,10 @@
           <mappings>
             <mapping deploy="/beegfs/bashir/standalone/software" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/dataset" />
+            <excludedPath path="/beegfs/bashir/standalone/software/dataset" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="bashir@top.pleiades.uni-wuppertal.de:22">

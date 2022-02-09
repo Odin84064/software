@@ -1,0 +1,2 @@
+/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/swConfig/asetup/createUserASetup.sh: line 44: /common/home/bashir/.asetup: No such file or directory
+cp: cannot stat '*.yoda.gz': No such file or directory

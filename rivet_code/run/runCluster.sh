@@ -1,0 +1,15 @@
+#./submit.sh	local_jO.py mc15_13TeV.600873.PhH7EG_A14_ttbar_hdamp258p75_dil_noCR.deriv.DAOD_TRUTH1.e8357_p4527
+#./submit.sh	local_jO.py 411009.PhPy8EG_A14_ttbar_hdamp258p75_PyCR1_dil
+#./submit.sh	local_jO.py 411011.PhPy8EG_A14_ttbar_hdamp258p75_PyCR2_dil
+#./submit.sh	local_jO.py 411013.PhPy8EG_A14_ttbar_hdamp258p75_PyCR3_dil
+#./submit.sh	local_jO.py 411015.PhPy8EG_A14_ttbar_hdamp258p75_PyCR4_dil
+#./submit.sh	local_jO.py 411017.PhPy8EG_A14_ttbar_hdamp258p75_PyCR5_dil
+#./submit.sh	local_jO.py 411019.PhPy8EG_A14_ttbar_hdamp258p75_PyCR6_dil
+#./submit.sh	local_jO.py 411021.PhPy8EG_A14_ttbar_hdamp258p75_PyCR7_dil
+#./submit.sh	local_jO.py 411023.PhPy8EG_A14_ttbar_hdamp258p75_PyCR8_dil
+#./submit.sh	local_jO.py 411025.PhPy8EG_A14_ttbar_hdamp258p75_PyCR9_dil
+#./submit.sh	local_jO.py 411027.PhPy8EG_A14_ttbar_hdamp258p75_PyCR10_dil
+#./submit.sh	local_jO.py 411029.PhPy8EG_A14_ttbar_hdamp258p75_PyCR11_dil
+#./submit.sh	local_jO.py 411031.PhPy8EG_A14_ttbar_hdamp258p75_PyCR12_dil
+#./submit.sh	local_jO.py 411033.PhPy8EG_A14_ttbar_hdamp258p75_PyCR13_dil
+./submit.sh	local_jO.py mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00
