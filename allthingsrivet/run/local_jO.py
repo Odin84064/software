@@ -1,6 +1,6 @@
 #https://gitlab.cern.ch/atlas-physics/pmg/tutorials/-/blob/master/Rivet/local_jO.py
 from AthenaCommon.AppMgr import theApp
-theApp.EvtMax = 10
+theApp.EvtMax = 10000
 
 import AthenaPoolCnvSvc.ReadAthenaPool
 import glob
@@ -19,7 +19,7 @@ from Rivet_i.Rivet_iConf import Rivet_i
 rivet = Rivet_i()
 import os
 #rivet.AnalysisPath ="/beegfs/shayma/Rivet/routines/"
-rivet.AnalysisPath ="/beegfs/bashir/standalone/routines/"
+rivet.AnalysisPath ="/beegfs/bashir/standalone/alllthingsrivet/routines/"
 
 rivet.Analyses += [ 'MC_ttbar_ColorReconnection' ]
 rivet.RunName = ''
