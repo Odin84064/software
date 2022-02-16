@@ -13,3 +13,4 @@
 #./submit.sh	local_jO.py 411031.PhPy8EG_A14_ttbar_hdamp258p75_PyCR12_dil
 #./submit.sh	local_jO.py 411033.PhPy8EG_A14_ttbar_hdamp258p75_PyCR13_dil
 ./submit.sh	local_jO.py mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00
+./submit.sh     local_jO.py mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419
