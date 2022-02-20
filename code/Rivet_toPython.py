@@ -74,13 +74,17 @@ def text_to_pandas_twofiles(input_files):
         datasets.append(pd.read_csv(input_file, delimiter=",", header=None, names=columns))
         datasets[index].drop('m', axis=1, inplace=True)
         datasets[index].drop('Barcode', axis=1, inplace=True)
+        #taking second directory's datasets as noice
         if input_file == 'mc1513tevcleaned.txt':
             datasets[index]['Status'] = 0
         datasets[index] = datasets[index].astype({'PDG_ID': np.int16, 'Status': np.int16})
     df = pd.concat(datasets)
     df.reset_index(drop=True, inplace=True)
+    #removing duplicates
     df_no = df.drop_duplicates(keep='last')
     df_no.reset_index(drop=True, inplace=True)
+    #shuffle dataset
+    df = df.sample(frac=1).reset_index(drop=True)
 
     df.to_parquet('final10000events.parquet', engine='pyarrow')
     print(df.head())
