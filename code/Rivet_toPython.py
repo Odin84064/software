@@ -74,11 +74,15 @@ def text_to_pandas_twofiles(input_files):
         datasets.append(pd.read_csv(input_file, delimiter=",", header=None, names=columns))
         datasets[index].drop('m', axis=1, inplace=True)
         datasets[index].drop('Barcode', axis=1, inplace=True)
-        #taking second directory's datasets as noice
+        #taking second directory's datasets as noise
         if input_file == 'mc1513tevcleaned.txt':
             datasets[index]['Status'] = 0
+        #equalizing the signal to noise rows
+        if input_file != 'mc1513tevcleaned.txt':
+             datasets[index] = datasets[index].query("Status == 1").sample(n=442477)
         datasets[index] = datasets[index].astype({'PDG_ID': np.int16, 'Status': np.int16})
     df = pd.concat(datasets)
+    #df = df.query("Status == 1").sample(n=4383788)
     df.reset_index(drop=True, inplace=True)
     #removing duplicates
     df_no = df.drop_duplicates(keep='last')
@@ -86,13 +90,13 @@ def text_to_pandas_twofiles(input_files):
     #shuffle dataset
     df = df.sample(frac=1).reset_index(drop=True)
 
-    df.to_parquet('final10000events.parquet', engine='pyarrow')
+    df.to_parquet('final1000events.parquet', engine='pyarrow')
     print(df.head())
     print(df.shape)
     print(df.info())
     print(df.describe())
     print(df['Status'].value_counts())
-
+    #df['Status'].value_counts().plot(kind='barh')
 
 def clean_text(input_file, output_file):
     '''
@@ -151,8 +155,8 @@ def text_to_pandas(input_file):
 input_files = ['mc15valid.txt','mc1513tev.txt']
 output_files = ['mcvalidcleaned.txt', 'mc1513tevcleaned.txt']
 
-events_10000 = clean_text_twofiles(input_files,output_files)
-text_to_pandas_twofiles(events_10000)
+events_1000 = clean_text_twofiles(input_files,output_files)
+text_to_pandas_twofiles(events_1000)
 
 
 
