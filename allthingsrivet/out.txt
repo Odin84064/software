@@ -1,0 +1,177 @@
+Thu Mar 17 12:44:08 CET 2022
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO using release [AthGeneration-21.6.69] [x86_64-centos7-gcc62-opt] [21.6/48c4e49b963] -- built on [2021-04-29T0934]
+Py:Athena            INFO including file "AthenaCommon/Bootstrap.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "dataset="mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "jO/runRivet.py"
+Py:ConfigurableDb    INFO Read module info for 516 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr       INFO Updating Gaudi::PluginService::SetDebug(level) to level= 'PluginDebugLevel':0
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v4r1)
+                                          running on top.pleiades.uni-wuppertal.de on Thu Mar 17 12:44:24 2022
+====================================================================================================================================
+ApplicationMgr       INFO Successfully loaded modules : AthenaServices
+ApplicationMgr       INFO Application Manager Configured successfully
+ApplicationMgr       INFO Updating Gaudi::PluginService::SetDebug(level) to level= 'PluginDebugLevel':0
+StatusCodeSvc        INFO initialize
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO  getRegistryEntries: read 2295 CLIDRegistry entries for module ALL
+ChronoStatSvc        INFO  Number of skipped events for MemStat-1
+CoreDumpSvc          INFO install f-a-t-a-l handler... (flag = -1)
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr - package version AthenaServices-00-00-00
+AthMasterSeq         INFO Member list: AthSequencer/AthAlgSeq, AthSequencer/AthOutSeq, AthSequencer/AthRegSeq
+AthAlgSeq            INFO Member list: Rivet_i/Rivet
+Rivet                INFO Using Rivet version 3.1.4
+Rivet             WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet                INFO Loading Rivet analysis MC_DUMP_event
+MetaDataSvc          INFO Initializing MetaDataSvc - package version AthenaServices-00-00-00
+AthenaPoolCnvSvc     INFO Initializing AthenaPoolCnvSvc - package version AthenaPoolCnvSvc-00-00-00
+PoolSvc              INFO Initializing PoolSvc - package version PoolSvc-00-00-00
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(serverurl=http://frontier-atlas.lcg.triumf.ca:3128/ATLAS_frontier)(serverurl=http://ccfrontier.in2p3.fr:23128/ccin2p3-AtlasFrontier)(proxyurl=http://atlasbpfrontier.cern.ch:3127)(proxyurl=http://atlasbpfrontier.fnal.gov:3127) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/21.6/AthGeneration/21.6.69/InstallArea/x86_64-centos7-gcc62-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host top.pleiades.uni-wuppertal.de [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+XMLFileCatalog Info Connecting to the catalog
+PoolXMLFileCatalog Info Xerces-c initialization Number 0
+PoolSvc              INFO Re-initializing PoolSvc
+EventSelector        INFO Initializing EventSelector - package version EventSelectorAthenaPool-00-00-00
+EventSelector        INFO reinitialization...
+EventSelector        INFO EventSelection with query 
+DbSession Info     Open     DbSession    
+Domain[ROOT_All] Info >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All] Info ->  Access   DbDatabase   READ      [ROOT_All] 45ACA4C2-2018-1E4B-993E-52D5A56E0EF5
+Domain[ROOT_All] Info                           /beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1
+RootDatabase.open Always /beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1 File version:60806
+ImplicitCollection Info Opened the implicit collection with connection string "PFN:/beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1"
+ImplicitCollection Info and a name "POOLContainer(DataHeader)"
+PoolSvc              INFO Failed to find container MetaDataHdrDataHeader to get Token.
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+AthenaPoolAddre...   INFO Initializing AthenaPoolAddressProviderSvc - package version EventSelectorAthenaPool-00-00-00
+ProxyProviderSvc     INFO Initializing ProxyProviderSvc - package version SGComps-00-00-00
+HistogramPersis...WARNING Histograms saving not required.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ActiveStoreSvc       INFO Initializing ActiveStoreSvc - package version StoreGate-00-00-00
+ApplicationMgr       INFO Application Manager Initialized successfully
+/beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1 Info Database being retired...
+Domain[ROOT_All] Info ->  Deaccess DbDatabase   READ      [ROOT_All] 45ACA4C2-2018-1E4B-993E-52D5A56E0EF5
+Domain[ROOT_All] Info >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession Info     Open     DbSession    
+Domain[ROOT_All] Info >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All] Info ->  Access   DbDatabase   READ      [ROOT_All] 45ACA4C2-2018-1E4B-993E-52D5A56E0EF5
+Domain[ROOT_All] Info                           /beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1
+RootDatabase.open Always /beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1 File version:60806
+ImplicitCollection Info Opened the implicit collection with connection string "PFN:/beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1"
+ImplicitCollection Info and a name "POOLContainer(DataHeader)"
+ApplicationMgr       INFO Application Manager Started successfully
+PoolSvc              INFO Failed to find container MetaDataHdrDataHeader to get Token.
+AthenaEventLoopMgr   INFO   ===>>>  start of run 950214    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360001, run #950214 0 events processed so far  <<<===
+Rivet.AnalysisHandler: INFO  Using named weights
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+22, 210, -0.0446813, 0.0362239, -3.82139, 10.53, 13, 1, -43.2087, -44.7132, -49.6179, 79.55, 14, 1, 3.49512, 21.4433, 0.498961, 21.7321, 16, 2, 15.7015, -7.91892, 38.5473, 51.5703, 211, 165, 0.177817, 0.103668, -2.74797, 30.4371, 321, 21, 0.262142, 0.774387, 10.7685, 18.4459, 2212, 9, 1.55977, 2.14256, -178.977, 220.45, 2112, 9, -0.431415, -0.326519, 191.659, 197.507, 3122, 5, 2.74341, 3.79613, 36.025, 38.528, 3112, 1, -0.893815, 0.142359, 0.408085, 1.5555, 130, 10, -1.47981, -1.78057, -2.31008, 9.43807, 310, 16, -1.28102, -1.10706, 45.5935, 69.8442, 11, 3, -0.962874, -0.0980915, -0.0646382, 1.48454, 12, 1, -1.9465, -1.52125, 0.914455, 2.63425, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360001, run #950214 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360002, run #950214 1 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+22, 264, 0.0626924, 0.017899, 4.01386, 16.4183, 211, 254, 0.0525771, -0.286382, -2.83423, 20.2067, 3222, 2, 0.263523, -0.188879, -7.70399, 7.95924, 3122, 4, 0.464132, -0.460445, -9.98342, 10.7328, 3112, 1, -2.08742, -1.07047, -1.59842, 3.08092, 2112, 9, -0.45317, 0.215085, -90.8499, 99.3013, 321, 23, -0.137247, 1.4941, -7.3328, 30.3974, 2212, 7, -0.279463, 0.943408, 78.629, 186.494, 310, 12, -0.849871, 0.722732, 12.459, 37.2237, 130, 8, -1.2161, 1.31315, 4.18309, 11.3459, 3322, 1, 1.11593, 1.13663, -25.8973, 25.9796, 11, 3, -0.526311, 1.20008, -0.558534, 1.43945, 12, 1, -0.619842, 4.48693, -2.32478, 5.0913, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360002, run #950214 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360003, run #950214 2 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+2112, 6, 0.0429295, -0.729562, 8.06168, 10.271, 2212, 10, -0.945674, -0.120804, -310.804, 659.974, 211, 108, 0.0364535, 0.21235, 19.6671, 40.603, 321, 13, -0.199393, -0.618087, 6.84318, 11.9278, 310, 8, -1.76844, -0.0125801, -4.15009, 16.4085, 130, 5, 1.4599, -0.0960292, -1.97751, 5.11181, 22, 140, 0.0820823, -0.0514636, 6.33731, 11.6864, 3122, 1, 3.01432, -0.922271, 2.26317, 4.03775, 3312, 1, 0.19651, -0.605261, 0.26965, 1.4915, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360003, run #950214 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360004, run #950214 3 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+211, 180, 0.10881, -0.103883, -2.79273, 14.0141, 321, 26, -1.84432, -0.358261, -5.03714, 9.54067, 2212, 12, -0.538079, 1.04825, 8.28838, 31.0265, 2112, 14, 0.283199, 0.139785, -15.3174, 76.2894, 3112, 1, -1.68642, 24.7034, -29.6521, 38.6495, 3122, 5, 0.579987, 3.79406, 421.094, 434.216, 130, 15, 1.4831, -0.281759, 9.8797, 15.5046, 310, 13, 0.437995, 0.265914, 57.8919, 78.2089, 22, 240, 0.0166511, -0.12912, -9.2855, 22.1917, 14, 1, -1.32978, 1.60948, 1.55461, 2.60299, 13, 1, -0.961628, -0.0470462, -1.00381, 1.39489, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360004, run #950214 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360005, run #950214 4 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+11, 7, 1.76724, -0.502912, 1.88644, 2.76238, 22, 165, 0.171263, 0.119352, -1.81798, 11.1358, 12, 3, -32.7957, -19.8836, 116.313, 124.607, 211, 125, 0.194747, 0.302152, -4.05455, 22.4262, 321, 14, 0.0668695, -0.152184, 6.31241, 12.9466, 2112, 10, 0.242467, -0.119086, 70.2941, 90.6574, 3112, 2, 1.55331, -1.82577, 0.285034, 5.8335, 2212, 12, 0.762321, 0.262907, -28.3716, 553.771, 310, 9, -0.103123, -0.814158, -0.576102, 9.16713, 130, 7, 0.315635, 2.15686, -6.30611, 12.5183, 3122, 4, 4.12952, 0.439126, 10.6358, 12.8227, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360005, run #950214 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360006, run #950214 5 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+211, 138, 0.326299, -0.0950056, 0.541323, 31.5184, 321, 25, -3.40789, 1.38166, -24.4542, 27.6552, 2212, 11, 0.208147, 0.0690337, 180.927, 182.49, 2112, 8, 0.465857, -0.256366, -5.56184, 30.2908, 310, 10, -0.559724, -1.08701, -11.5805, 24.219, 130, 9, -0.0524624, 0.180465, -206.566, 284.081, 3122, 1, -0.510427, -0.277567, -0.151372, 1.26698, 22, 176, 0.0677261, -0.16803, 3.66792, 16.0294, 14, 2, 6.78018, 4.975, -17.1684, 19.1251, 13, 2, 7.68605, 4.56457, -18.4156, 20.4925, 11, 4, -0.0302215, -0.0303817, -2.09692, 2.19191, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360006, run #950214 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360007, run #950214 6 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+16, 2, -10.4115, -20.6146, 151.428, 153.944, 211, 313, -0.0115803, 0.179528, 4.24926, 12.8167, 321, 32, 0.524764, -0.894815, 2.3114, 23.9135, 2212, 19, -1.01524, 0.121653, -38.2675, 90.7561, 2112, 23, 0.196339, 0.318245, 7.81227, 23.6502, 3112, 4, 0.960398, -1.20891, 11.016, 13.6003, 3322, 2, -1.41169, -0.818597, 49.638, 50.0277, 3122, 7, -0.229137, -0.589569, 39.4558, 46.0637, 3222, 1, 0.284343, -0.450687, -1311.24, 1311.24, 310, 15, 0.404322, -0.502277, 3.77347, 17.0612, 130, 15, -0.714909, -0.191652, 0.271913, 12.0027, 22, 345, 0.0755062, 0.0205025, -1.00178, 9.84776, 14, 1, 1.54773, 11.6821, 12.0113, 16.8267, 13, 1, -0.208171, 6.74405, 5.1936, 8.5153, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360007, run #950214 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360008, run #950214 7 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+22, 312, -0.147541, -0.210258, 0.879412, 6.47858, 211, 218, -0.268573, 0.186584, 2.41405, 26.5814, 2112, 10, -4.94034, 1.5024, 146.979, 191.027, 321, 20, 8.03389, 0.0413501, -20.4885, 39.1049, 2212, 17, -1.32188, 0.19068, -97.789, 105.015, 3122, 8, -1.28833, -1.48323, -13.3533, 18.059, 3322, 1, -5.724, 2.7956, 0.50491, 6.52406, 3222, 2, -5.87701, -0.0363787, -22.6546, 24.6444, 310, 11, -1.41513, -0.627727, 12.194, 15.6212, 130, 19, -1.68472, 0.900807, -1.76785, 8.47549, 13, 1, 43.1777, 2.26748, -70.7492, 82.9151, 14, 1, 47.9621, 2.49783, -76.4128, 90.2525, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360008, run #950214 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360009, run #950214 8 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+22, 373, -0.0301395, 0.0451413, 0.471985, 8.88391, 211, 285, -0.0423711, -0.148745, -3.57229, 12.8958, 2112, 19, 0.274734, 1.09677, 16.6443, 47.8063, 321, 41, -0.219696, -0.616728, -5.76005, 57.3306, 2212, 13, 0.496437, -0.14946, 73.1241, 83.7339, 3122, 7, 1.47585, 0.446212, 5.75276, 77.4273, 130, 15, 0.829557, -0.436906, 10.8515, 31.4127, 310, 20, -0.0263155, 0.900066, -10.8212, 23.5961, 11, 1, 0.272195, 1.72038, -12.0246, 12.1501, 12, 1, 4.65503, 14.3059, -106.67, 107.726, 3112, 1, 0.990992, 0.715667, -42.8294, 42.8636, 14, 1, -1.48118, -0.454101, -2.21708, 2.70473, 13, 1, -6.03327, 1.08587, -11.5165, 13.0469, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360009, run #950214 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6360010, run #950214 9 events processed so far  <<<===
+    Total Number ,PDG_ID ,        Px,       Py ,       Pz ,       E 
+
+
+
+211, 172, 0.586755, 0.676375, 7.07135, 38.2955, 321, 16, -0.261071, -1.44896, 16.9834, 24.3449, 2112, 13, 0.12781, -0.848906, -19.0319, 49.9541, 2212, 16, 0.0913657, -0.598245, -97.5422, 102.232, 3222, 3, -12.2758, -12.3071, 19.1816, 28.5561, 3112, 3, 1.71312, 4.7191, -1.27067, 6.68178, 130, 12, -1.2662, -1.32129, 16.9541, 23.6548, 310, 18, 0.549276, 0.564275, 2.37364, 18.753, 22, 178, 0.126677, 0.115524, -0.743787, 15.4457, 3122, 1, -24.3703, -24.7224, 23.3492, 41.8514, 14, 2, -9.59791, -6.64965, 20.6486, 36.2735, 13, 2, -20.9061, -13.3226, 43.9896, 73.8029, 11, 2, -0.0214779, 0.0102886, -0.0271032, 0.0363245, 
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6360010, run #950214 10 events processed so far  <<<===
+/beegfs/hirsch/sfsscratch/PoolFiles/mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00/EVNT.24450207._000525.pool.root.1 Info Database being retired...
+Domain[ROOT_All] Info ->  Deaccess DbDatabase   READ      [ROOT_All] 45ACA4C2-2018-1E4B-993E-52D5A56E0EF5
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet                INFO Rivet_i finalizing
+AthAlgSeq            INFO Finalizing AthAlgSeq...
+AthOutSeq            INFO Finalizing AthOutSeq...
+AthRegSeq            INFO Finalizing AthRegSeq...
+AthMasterSeq         INFO Finalizing AthMasterSeq...
+Domain[ROOT_All] Info >   Deaccess DbDomain     READ      [ROOT_All] 
+PoolXMLFileCatalog Info XercesC termination number 0
+PoolSvc              INFO I/O finalization...
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+*****Chrono*****     INFO ****************************************************************************************************
+*****Chrono*****     INFO  The Final CPU consumption ( Chrono ) Table (ordered)
+*****Chrono*****     INFO ****************************************************************************************************
+cObjR_ALL            INFO Time User   : Tot= 44.2 [ms] Ave/Min/Max= 1.19(+- 2.09)/    0/ 11.1 [ms] #= 37
+cObj_ALL             INFO Time User   : Tot=  109 [ms] Ave/Min/Max= 3.21(+- 5.77)/    0/ 24.3 [ms] #= 34
+ChronoStatSvc        INFO Time User   : Tot=  2.3  [s]                                             #=  1
+*****Chrono*****     INFO ****************************************************************************************************
+ChronoStatSvc.f...   INFO  Service finalized successfully 
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Py:Athena            INFO leaving with code 0: "successful run"
+CORAL/Services/ConnectionService Info Deleting the ConnectionPool

@@ -1,6 +1,11 @@
 
 
 /dataset/
-/code/jupyter notebooks/.ipynb_checkpoints/
+/code/jupyternotebooks/.ipynb_checkpoints/
 /allthingsrivet/logs/
-/code/jupyter notebooks/dataframetesting.ipynb
+/code/jupyternotebooks/dataframetesting.ipynb
+/2events.txt
+/2events_1.txt
+/Presentation/
+/code/plots/
+/code/jupyternotebooks/

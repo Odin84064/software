@@ -1,6 +1,6 @@
 #https://gitlab.cern.ch/atlas-physics/pmg/tutorials/-/blob/master/Rivet/local_jO.py
 from AthenaCommon.AppMgr import theApp
-theApp.EvtMax = 10000
+theApp.EvtMax = 1000
 
 import AthenaPoolCnvSvc.ReadAthenaPool
 import glob
