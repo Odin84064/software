@@ -3,6 +3,12 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/dataset" />
+      <excludeFolder url="file://$MODULE_DIR$/code/jupyternotebooks/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/allthingsrivet/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/code/plots" />
+      <excludeFolder url="file://$MODULE_DIR$/code/plots/10000eventsdataset(parquetfile)" />
+      <excludeFolder url="file://$MODULE_DIR$/code/plots/Neural" />
+      <excludeFolder url="file://$MODULE_DIR$/code/plots/plot_stratified" />
     </content>
     <orderEntry type="jdk" jdkName="Remote Python 3.6.8 (sftp://bashir@top.pleiades.uni-wuppertal.de:22/beegfs/bashir/standalone/virtual_env/env/bin/python3)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
