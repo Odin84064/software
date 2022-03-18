@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="bashir@top.pleiades.uni-wuppertal.de:22" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="bashir@top.pleiades.uni-wuppertal.de" remoteFilesAllowedToDisappearOnAutoupload="false" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
     <serverData>
       <paths name="bashir@top.pleiades.uni-wuppertal.de">
         <serverdata>
@@ -18,6 +18,10 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/dataset" />
+            <excludedPath path="/dataset" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="top.pleiades.uni-wuppertal.de">

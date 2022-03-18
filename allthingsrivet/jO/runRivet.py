@@ -8,7 +8,7 @@ svcMgr.EventSelector.InputCollections = glob.glob("/beegfs/hirsch/sfsscratch/Poo
 
 # limit number of events
 from AthenaCommon.AppMgr import theApp
-theApp.EvtMax = 10000
+theApp.EvtMax = 1000
 MessageSvc.defaultLimit = 9999999999999
 ## Now set up Rivet
 from Rivet_i.Rivet_iConf import Rivet_i
