@@ -17,7 +17,7 @@
 namespace Rivet {
 
 
-    /// @author Dominic Hirschbuehl
+
     class MC_DUMP_event : public Analysis {
     public:
 
