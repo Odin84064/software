@@ -149,7 +149,7 @@ def to_parquet(list1 , list2 ):
     df.drop(['ID_211', 'ID_22'], axis=1, inplace=True)
     df.reset_index(drop=True, inplace=True)
 
-    df.to_parquet('100000eventsconsolidated.parquet', engine='pyarrow')
+    df.to_parquet('eventsconsolidated.parquet', engine='pyarrow')
     return df
 
 
@@ -162,17 +162,33 @@ def to_parquet(list1 , list2 ):
 #abc = clean_text('10cons.txt','10conscleaned.txt')
 #d2 = only_commonids(abc)
 
+# #cleaned file of spaces
+# mcvalid = clean_text('mc15validconsolidated.txt','mc15validconsolidatedcleaned.txt')
+# #list of list of common ids for signal
+# mcvaliddic= only_commonids(mcvalid)
+#
+# #cleaned files of spaces
+# mctev = clean_text('mc1513tevconsolidated.txt','mc1513tevconsolidatedcleaned.txt')
+# #list of list of common ids for noice
+# mctevdic = only_commonids(mctev)
+#
+# #finalized dataframe and parquet file which contains consolidated common ids per event
+# df = to_parquet(mcvaliddic,mctevdic)
+
+
+
+
 #cleaned file of spaces
-mcvalid = clean_text('mc15validconsolidated.txt','mc15validconsolidatedcleaned.txt')
+mcvalid = clean_text('signalconsolidated.txt','signalconsolidatedcleaned.txt')
 #list of list of common ids for signal
 mcvaliddic= only_commonids(mcvalid)
 
-#cleaned files of spaces
-mctev = clean_text('mc1513tevconsolidated.txt','mc1513tevconsolidatedcleaned.txt')
-#list of list of common ids for noice
+# #cleaned files of spaces
+mctev = clean_text('backgroundconsolidated.txt','backgroundsolidatedcleaned.txt')
+# #list of list of common ids for noice
 mctevdic = only_commonids(mctev)
-
-#finalized dataframe and parquet file which contains consolidated common ids per event
+#
+# #finalized dataframe and parquet file which contains consolidated common ids per event
 df = to_parquet(mcvaliddic,mctevdic)
 
 

@@ -2,7 +2,7 @@
 
 export JO=$1
 export DATASET=$2
-export WORKDIR=/beegfs/bashir/standalone/allthingsrivet
+export WORKDIR=/beegfs/bashir/standalone/software/allthingsrivet
 
 if [ -z $3 ]; then
   export RUN=`echo $DATASET | awk -F. '{print $2}'`

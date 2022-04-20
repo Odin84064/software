@@ -30,8 +30,8 @@ if [ $? -ne 0 ]; then
 fi
 source $ATLAS_LOCAL_ROOT_BASE/packageSetups/localSetup.sh --quiet "cmake 3.11.0"
 if [ -z "${AtlasSetup:+x}" ]; then
-    export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V02-00-36/AtlasSetup"
-    export AtlasSetupVersion="AtlasSetup-02-00-36"
+    export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V02-00-37/AtlasSetup"
+    export AtlasSetupVersion="AtlasSetup-02-00-37"
 fi
 export FRONTIER_LOG_LEVEL="warning"
 export ATLAS_POOLCOND_PATH="/cvmfs/atlas-condb.cern.ch/repo/conditions"
@@ -55,7 +55,7 @@ asetup_status=$?
 if [ ${asetup_status} -ne 0 ]; then
     \echo "AtlasSetup(ERROR): sourcing release setup script (/cvmfs/atlas.cern.ch/repo/sw/software/21.6/AthGeneration/21.6.72/InstallArea/x86_64-centos7-gcc62-opt/setup.sh) failed"
 fi
-export TestArea="/beegfs/bashir/standalone/allthingsrivet"
+export TestArea="/beegfs/bashir/standalone/software/allthingsrivet"
 alias_sys_exe emacs
 echo $LD_LIBRARY_PATH | egrep "LCG_[^/:]*/curl/" >/dev/null
 if [ $? -eq 0 ]; then
