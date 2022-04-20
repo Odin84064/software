@@ -9,6 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/code/plots/10000eventsdataset(parquetfile)" />
       <excludeFolder url="file://$MODULE_DIR$/code/plots/Neural" />
       <excludeFolder url="file://$MODULE_DIR$/code/plots/plot_stratified" />
+      <excludeFolder url="file://$MODULE_DIR$/code/jupyternotebooks" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (neuro)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
