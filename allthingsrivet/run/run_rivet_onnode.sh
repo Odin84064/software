@@ -23,8 +23,16 @@ cat $JO
 
 #athena $JO -c "dataset=\"${DATASET}\""   2>&1 | tee  /beegfs/bashir/standalone/yoda/output.txt
 
-athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/mc15validconsolidated.txt
-athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/mc1513tevconsolidated.txt
+#athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/mc15validconsolidated.txt
+#athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/mc1513tevconsolidated.txt
+
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/signaconsolidated7.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/backgroundconsolidated7.txt
+
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/signalconsolidated69.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/backgroundconsolidated69.txt
+
+
 
 ls 
 

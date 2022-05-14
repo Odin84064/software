@@ -30,8 +30,8 @@ if [ $? -ne 0 ]; then
 fi
 source $ATLAS_LOCAL_ROOT_BASE/packageSetups/localSetup.sh --quiet "cmake 3.11.0"
 if [ -z "${AtlasSetup:+x}" ]; then
-    export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V02-00-37/AtlasSetup"
-    export AtlasSetupVersion="AtlasSetup-02-00-37"
+    export AtlasSetup="/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/AtlasSetup/V02-00-39/AtlasSetup"
+    export AtlasSetupVersion="AtlasSetup-02-00-39"
 fi
 export FRONTIER_LOG_LEVEL="warning"
 export ATLAS_POOLCOND_PATH="/cvmfs/atlas-condb.cern.ch/repo/conditions"
@@ -45,7 +45,7 @@ export AtlasBuildStamp="2021-05-22T0933"
 export AtlasReleaseType="stable"
 export AtlasBuildBranch="21.6"
 export AtlasProject="AthGeneration"
-export TDAQ_RELEASE_BASE="/cvmfs/atlas.cern.ch/repo/sw/tdaq"
+export TDAQ_RELEASE_BASE="/cvmfs/atlas.cern.ch/repo/sw/tdaq/offline"
 export ATLAS_RELEASE_BASE="/cvmfs/atlas.cern.ch/repo/sw/software/21.6"
 export ATLAS_RELEASEDATA="/cvmfs/atlas.cern.ch/repo/sw/software/21.6/atlas/offline/ReleaseData"
 export AtlasArea="/cvmfs/atlas.cern.ch/repo/sw/software/21.6/AthGeneration/21.6.72"
@@ -66,6 +66,8 @@ if [ $? -ne 0 ]; then
     echo -e '\nMaking workaround-alias for expr on this *OLD* machine'; alias_sys_exe expr
 fi
 export PATH="${ASETUP_SYSBIN}:${PATH}"
+
+[[ $LD_LIBRARY_PATH =~ $GAUDI_ROOT ]] || unset GAUDI_ROOT
 
 #Release Summary as follows:
 #Release base=/cvmfs/atlas.cern.ch/repo/sw/software/21.6
