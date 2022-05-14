@@ -25,7 +25,7 @@ os.chdir("../dataset/")
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
 
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('eventsconsolidated1.parquet', engine="pyarrow")
+df = pd.read_parquet('eventsconsolidated69.parquet', engine="pyarrow")
 
 
 # Create training and validation splits
@@ -72,7 +72,7 @@ X_test_scaled =  pd.DataFrame(X_test_scaled, columns = X_test.columns)
 def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(1, activation='sigmoid', input_shape=[10]),
+        layers.Dense(1, activation='sigmoid', input_shape=[6]),
 
     ])
 
@@ -132,7 +132,7 @@ def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_val
 def basic_model(activation, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(10, activation='relu', input_shape=[10]),
+        layers.Dense(6, activation='relu', input_shape=[6]),
         layers.Dense(1, activation='sigmoid'),
     ])
 
