@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="bashir@top.pleiades.uni-wuppertal.de" remoteFilesAllowedToDisappearOnAutoupload="false" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
+  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="bashir@top.pleiades.uni-wuppertal.de">
+      <paths name="bashir@top.pleiades.uni-wuppertal.de:22 password">
         <serverdata>
           <mappings>
-            <mapping deploy="/beegfs/bashir/standalone/software" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/dataset" />
-            <excludedPath path="/beegfs/bashir/standalone/software/dataset" />
-          </excludedPaths>
         </serverdata>
       </paths>
-      <paths name="bashir@top.pleiades.uni-wuppertal.de:22">
+      <paths name="bashir@top.pleiades.uni-wuppertal.de:22 password (1)">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/dataset" />
-            <excludedPath path="/dataset" />
-          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="bashir@top.pleiades.uni-wuppertal.de:22 password (2)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="bashir@top.pleiades.uni-wuppertal.de:22 password (3)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
         </serverdata>
       </paths>
       <paths name="top.pleiades.uni-wuppertal.de">
