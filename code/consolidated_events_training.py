@@ -23,9 +23,10 @@ print("Current working directory: {0}".format(os.getcwd()))
 os.chdir("../dataset/")
 #first parquet file of mcvalid.text and mctev.txt
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
-
+pd.set_option('display.max_columns', None)
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('eventsconsolidated69.parquet', engine="pyarrow")
+df = pd.read_parquet('var7.parquet', engine="pyarrow")
+print(df.head(5))
 
 
 # Create training and validation splits
@@ -72,7 +73,7 @@ X_test_scaled =  pd.DataFrame(X_test_scaled, columns = X_test.columns)
 def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(1, activation='sigmoid', input_shape=[6]),
+        layers.Dense(1, activation='sigmoid', input_shape=[12]),
 
     ])
 
@@ -132,7 +133,7 @@ def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_val
 def basic_model(activation, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(6, activation='relu', input_shape=[6]),
+        layers.Dense(12, activation='relu', input_shape=[12]),
         layers.Dense(1, activation='sigmoid'),
     ])
 
@@ -474,7 +475,7 @@ def roc_auc_curve_two(model, perceptron):
 
 
 
-tan_fun = basic_model('tanh',0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,500)
+tan_fun = basic_model('tanh',0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,1000)
 #
 #
 # one,zero,final,predict = plot_output_predictions(tan_fun[0])
