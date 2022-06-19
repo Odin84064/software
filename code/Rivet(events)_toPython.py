@@ -164,7 +164,7 @@ def only_commonids_modified(input_file):
     for item in data:
 
         #item.pop()
-        chunks[count] = [list(np.float_(item[x:x+4])) for x in range(0, len(item), 4)]
+        chunks[count] = [list(np.float_(item[x:x+6])) for x in range(0, len(item), 6)]
         event_ids.append(chunks[count][0])
         count += 1
     #list of dictionaries with particle ids as keys
@@ -440,3 +440,11 @@ s69dic = rivet_to_df(s69)
 b69dic = rivet_to_df(b69)
 
 df2 = to_parquet_m2(s69dic,b69dic,'abseta69')
+
+
+
+s7 = clean_text('signal7.txt','s7.txt')
+b7 = clean_text('background7.txt','b7.txt')
+b7 = only_commonids_modified(b7)
+s7 = only_commonids_modified(s7)
+df = to_parquet_modified(s7,b7,'abseta7')

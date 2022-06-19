@@ -8,13 +8,13 @@ svcMgr.EventSelector.InputCollections = glob.glob("/beegfs/hirsch/sfsscratch/Poo
 
 # limit number of events
 from AthenaCommon.AppMgr import theApp
-theApp.EvtMax = 100
+theApp.EvtMax = 100000
 MessageSvc.defaultLimit = 9999999999999
 ## Now set up Rivet
 from Rivet_i.Rivet_iConf import Rivet_i
 rivet=Rivet_i("Rivet")
 #rivet.AnalysisPath ="/lustre/hirsch/Athena/Rivet/v3.1.2/routines/"
-rivet.Analyses += ["MC_1113"]
+rivet.Analyses += ["MC_newfeatures"]
 rivet.CrossSection = 1
 
 #ivet.HistoFile = "dummy.yoda"

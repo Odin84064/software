@@ -16,7 +16,7 @@ import csv
 pd.set_option('display.max_columns', None)
 
 print("Current working directory: {0}".format(os.getcwd()))
-os.chdir("../dataset/")
+os.chdir("dataset/")
 print("Current working directory: {0}".format(os.getcwd()))
 
 
