@@ -14,7 +14,7 @@ MessageSvc.defaultLimit = 9999999999999
 from Rivet_i.Rivet_iConf import Rivet_i
 rivet=Rivet_i("Rivet")
 #rivet.AnalysisPath ="/lustre/hirsch/Athena/Rivet/v3.1.2/routines/"
-rivet.Analyses += ["MC_newfeatures"]
+rivet.Analyses += ["MC_variance"]
 rivet.CrossSection = 1
 
 #ivet.HistoFile = "dummy.yoda"
