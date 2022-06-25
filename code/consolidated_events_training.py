@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import numpy as np
+
 from tensorflow import keras
 import tensorflow as tf
 from tensorflow.keras import layers
@@ -16,33 +17,20 @@ import os
 import time
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pickle
 from matplotlib import pyplot
 from timeit import default_timer as timer
 
 print("Current working directory: {0}".format(os.getcwd()))
-os.chdir("../dataset/")
+os.chdir("../dataset")
+print("Current working directory: {0}".format(os.getcwd()))
 #first parquet file of mcvalid.text and mctev.txt
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
 pd.set_option('display.max_columns', None)
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('abseta69.parquet', engine="pyarrow")
+df = pd.read_parquet('msb/msbvar1_2.parquet', engine="pyarrow")
 print(df.head(5))
 
-
-# Create training and validation splits
-# features = df.iloc[:,0:-1]
-# labels = df.iloc[:,-1]
-# X_train, X_valid, y_train, y_valid = train_test_split(features, labels, test_size=0.33, random_state=42)
-# numerical_cols = [cname for cname in features.columns if features[cname].dtype in ['int64', 'float64']]
-# ct = ColumnTransformer([("only numeric", StandardScaler(), numerical_cols)], remainder='passthrough')
-# X_train_scaled = ct.fit_transform(X_train)
-# X_valid_scaled = ct.transform(X_valid)
-# X_train_scaled = pd.DataFrame(X_train_scaled,columns = X_train.columns)
-# X_valid_scaled = pd.DataFrame(X_valid_scaled, columns = X_valid.columns)# nt = ColumnTransformer([("only numeric", Normalizer(), numerical_cols)], remainder='passthrough')
-# X_train_norm = nt.fit_transform(X_train)
-# X_valid_norm = nt.transform(X_valid)
-# X_train_norm = pd.DataFrame(X_train_norm,columns = X_train.columns)
-# X_valid_norm = pd.DataFrame(X_valid_norm, columns = X_valid.columns)
 
 
 
@@ -72,7 +60,7 @@ X_test_scaled =  pd.DataFrame(X_test_scaled, columns = X_test.columns)
 def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(1, activation='sigmoid', input_shape=[6]),
+        layers.Dense(1, activation='sigmoid', input_shape=[18]),
 
     ])
 
@@ -132,7 +120,7 @@ def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_val
 def basic_model(activation, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(6, activation='relu', input_shape=[6]),
+        layers.Dense(18, activation='relu', input_shape=[18]),
         layers.Dense(1, activation='sigmoid'),
     ])
 
@@ -278,9 +266,9 @@ def plot_output_predictions(model):
     ax.margins(0.05)
     ax.set_ylim(bottom=0)
     plt.xlim([0, 1.1])
-    plt.show()
     pat1 = '../code/plots/eventsconsolidated/' + 'predictions_for_signal'
     plt.savefig(pat1)
+    plt.show()
     plt.close()
 
     fig, ax = plt.subplots()
@@ -294,9 +282,9 @@ def plot_output_predictions(model):
     ax.margins(0.05)
     ax.set_ylim(bottom=0)
     plt.xlim([0, 1])
-    plt.show()
     pat2 = '../code/plots/eventsconsolidated/' + 'predictions_for_noise'
     plt.savefig(pat2)
+    plt.show()
     plt.close()
 
     return one, zero, final, predict
@@ -313,33 +301,39 @@ def plot_output_distribution(model):
 
     data1 = one['Predict']
     data0 = zero['Predict']
-    plt.figure(figsize=(15, 7))
+    plt.figure(figsize=(15, 8))
     sns.histplot(data0, label='Background', kde= 'True',color = 'b')
     sns.histplot(data1,label='Signal', kde= 'True',alpha=0.7, color='r')
     plt.xlabel('Probabilitiy Distribution ', fontsize=25)
     plt.ylabel('Number of Datapoints', fontsize=25)
     plt.legend(fontsize=15)
     plt.tick_params(axis='both', labelsize=25, pad=5)
+    pat1 = '../code/plots/eventsconsolidated/' + 'probability_distribution' + '.png'
+    plt.savefig(pat1)
     plt.show()
     plt.close()
 
     plt.figure()
-    plt.figure(figsize=(15, 7))
+    plt.figure(figsize=(15, 8))
     sns.histplot(data0, bins=50, label='Background',kde = True,color='b')
     plt.xlabel('Probabilitiy Distribution ', fontsize=25)
     plt.ylabel('Frequency of Datapoints', fontsize=25)
     plt.legend(fontsize=15)
     plt.tick_params(axis='both', labelsize=25, pad=5)
+    pat2 = '../code/plots/eventsconsolidated/' + 'probability_distribution_background' + '.png'
+    plt.savefig(pat2)
     plt.show()
     plt.close()
 
     plt.figure()
-    plt.figure(figsize=(15, 7))
+    plt.figure(figsize=(15, 8))
     sns.histplot(data1, bins=50, label='Signal',alpha = 0.7,color = 'r',kde = True)
     plt.xlabel('Probabilitiy Distribution ', fontsize=25)
     plt.ylabel('Frequency of Datapoints', fontsize=25)
     plt.legend(fontsize=15)
     plt.tick_params(axis='both', labelsize=25, pad=5)
+    pat2 = '../code/plots/eventsconsolidated/' + 'probability_distribution_signal' + '.png'
+    plt.savefig(pat2)
     plt.show()
     plt.close()
 
@@ -376,9 +370,10 @@ def f1_accuracy_confusion(model):
         ax.set_title('Confusion Matrix blue');
         ax.xaxis.set_ticklabels(['Background', 'Signal']);
         ax.yaxis.set_ticklabels(['Background', 'Signal'])
-        plt.show()
-        pat3 = '../code/plots/eventsconsolidated/output_parameters/' + 'confusion_matrix'
+        pat3 = '../code/plots/eventsconsolidated/' + 'confusion_matrix' + '.jpg'
         plt.savefig(pat3)
+        plt.show()
+
         plt.close()
         tp1 = len(true_pos)
         fp1 = len(false_pos)
@@ -394,9 +389,23 @@ def f1_accuracy_confusion(model):
         ax.set_title('Confusion Matrix');
         ax.xaxis.set_ticklabels(['Signal', 'Background']);
         ax.yaxis.set_ticklabels(['Signal', 'Background'])
-        plt.show()
-        pat4 = '../code/plots/eventsconsolidated/output_parameters/' + 'confusion_matrix_green'
+        pat4 = '../code/plots/eventsconsolidated/' + 'confusion_matrix_green' + '.jpg'
         plt.savefig(pat4)
+        plt.show()
+
+
+        #writing performance parameters to a file
+        perf_dic = {'f1':f1,'accuracy' : accuracy, 'sensitivity' : sensitivity , 'specificity' : specificity}
+
+        try:
+            geeky_file = open('../code/plots/eventsconsolidated/performance_param.txt', 'wt')
+            geeky_file.write(str(perf_dic))
+            geeky_file.close()
+
+        except:
+            print("Unable to write to file")
+
+
         return f1, accuracy,sensitivity,specificity
 
 def roc_auc_curve(model):
@@ -420,7 +429,7 @@ def roc_auc_curve(model):
     # Show plot
     plt.show()
     plt.show()
-    pat4 = '../code/plots/eventsconsolidated/output_parameters/' + 'roc'
+    pat4 = '../code/plots/eventsconsolidated/' + 'roc' + '.jpg'
     plt.savefig(pat4)
     plt.close()
 def roc_auc_curve_two(model, perceptron):
@@ -445,8 +454,12 @@ def roc_auc_curve_two(model, perceptron):
         # Show legend
         plt.legend()  #
         # Show plot
+        pat4 = '../code/plots/eventsconsolidated/' + 'roc' + '.jpg'
+        plt.savefig(pat4)
         plt.show()
         plt.show()
+
+        plt.close()
 
 
 #tan_fun = []

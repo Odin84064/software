@@ -17,4 +17,5 @@ alias q='squeue -u bashir'
 alias jobtime='jobtime(){ sacct -j "$1" --format=Elapsed;}; jobtime'
 
 #running Rivet
-athena jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee out.txt
+athena ../jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee out.txt
+mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8448
