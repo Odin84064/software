@@ -28,7 +28,7 @@ print("Current working directory: {0}".format(os.getcwd()))
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
 pd.set_option('display.max_columns', None)
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('msb/msbvar1_2.parquet', engine="pyarrow")
+df = pd.read_parquet('msb/msbvar7.parquet', engine="pyarrow")
 print(df.head(5))
 
 
@@ -460,6 +460,8 @@ def roc_auc_curve_two(model, perceptron):
         plt.show()
 
         plt.close()
+
+#
 
 
 #tan_fun = []

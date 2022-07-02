@@ -47,8 +47,8 @@ cat $JO
 #athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbbackground69.txt
 
 
-#athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal1.txt
-#athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal2.txt
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal1.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal2.txt
 #athena ${WORKDIR}/jO/runRivet.py -c "dataset=\" mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8448\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbbackground3.txt
 
 
