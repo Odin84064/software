@@ -3,7 +3,7 @@ trains model 50 times and store performance parameters f1 ,ccuracy,sensitivity a
 plots distribution of these performance parameters and store their std
 '''
 
-
+import pytesseract
 
 import pandas as pd
 import re
@@ -147,6 +147,48 @@ def run_multiple_model():
     df.to_excel('msb/var1_2_50times.xlsx')
     return df
 
+def mean_median_variance_of_parameters(path):
+    df1 = pd.read_excel(path)
+    df1.columns = df1.columns.str.strip()
+
+    f1_mean = df1['f1_score'].mean(axis = 0)
+    acc_mean = df1['accuracy'].mean(axis = 0)
+    sensitivity_mean = df1['sensitivity'].mean(axis = 0)
+    specificity_mean = df1['specificity'].mean(axis = 0)
+
+    mean_dic = {'f1_mean': f1_mean, 'accuracy_mean': acc_mean, 'sensitivity_mean': sensitivity_mean,
+               'specificity_mean': specificity_mean}
+
+    f1_median = df1['f1_score'].median(axis = 0)
+    acc_median = df1['accuracy'].median(axis = 0)
+    sensitivity_median = df1['sensitivity'].median(axis = 0)
+    specificity_median = df1['specificity'].median(axis = 0)
+
+    median_dic = {'f1_median': f1_median, 'accuracy_median': acc_median, 'sensitivity_median': sensitivity_median,
+                'specificity_median': specificity_median}
+
+    f1_variance = df1['f1_score'].var(ddof=0)
+    acc_variance = df1['accuracy'].var(ddof=0)
+    sensitivity_variance = df1['sensitivity'].var(ddof=0)
+    specificity_variance = df1['specificity'].var(ddof=0)
+
+    variance_dic = {'f1_variance': f1_variance, 'accuracy_variance': acc_variance,
+                    'sensitivity_variance': sensitivity_variance,
+                    'specificity_variance': specificity_variance}
+
+    try:
+        geeky_file = open('../code/plots/eventsconsolidated/mean_median_var.txt', 'wt')
+        geeky_file.write(str(mean_dic)+ '\n')
+        geeky_file.write('\n')
+        geeky_file.write(str(median_dic) + '\n')
+        geeky_file.write('\n')
+        geeky_file.write(str(variance_dic))
+        geeky_file.close()
+
+    except:
+        print("Unable to write to file")
+
+
 def distribution_deviation_of_parameters(path):
 
     """
@@ -156,6 +198,7 @@ def distribution_deviation_of_parameters(path):
     """
 
     df1 = pd.read_excel(path)
+
 
     #plotting  how performance parameters are distributed
     plt.figure(figsize=(15, 8))
@@ -214,4 +257,9 @@ def distribution_deviation_of_parameters(path):
 # total = t1-t0
 # print(total)
 
-distribution_deviation_of_parameters('msb/1_2/var1_2_50times.xlsx')
+#distribution_deviation_of_parameters('msb/1_2/var1_2_50times.xlsx')
+
+mean_median_variance_of_parameters('msb/1_2/var1_2_50times.xlsx')
+
+
+#df1 = pd.read_excel('msb/7/var7_50times.xlsx')
