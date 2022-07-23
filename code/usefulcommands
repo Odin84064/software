@@ -19,3 +19,8 @@ alias jobtime='jobtime(){ sacct -j "$1" --format=Elapsed;}; jobtime'
 #running Rivet
 athena ../jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee out.txt
 mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8448
+
+
+export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
+source setupRivet.sh
