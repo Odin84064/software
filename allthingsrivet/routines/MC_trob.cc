@@ -32,7 +32,7 @@ namespace Rivet {
         // myfile << particle_entries << '\n';
         char particle_legend[400];
 
-      sprintf( particle_legend,"     %9s ,%8s ,%4s",
+      sprintf( particle_legend," %9s ,%8s ,%4s",
                "particle_multiplicity","transverse_momenta_sum","beam_thrust");
       std::cout<<particle_legend<<std::endl;
 
@@ -58,7 +58,7 @@ namespace Rivet {
         beamThrust += pT*exp(-p.abseta());}
 
       char particle_entries[120];
-      sprintf(particle_entries, " %9i, %+9.3g , %+9.3g",
+      sprintf(particle_entries, "%f, %f , %f",
               cpm,sumPt,beamThrust);
 
 

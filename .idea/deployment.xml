@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false" showEqualInSync="true" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="top.pleiades.uni-wuppertal.de" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false" showEqualInSync="true" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="bashir@top.pleiades.uni-wuppertal.de:22 password">

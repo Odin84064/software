@@ -22,14 +22,14 @@ from matplotlib import pyplot
 from timeit import default_timer as timer
 
 print("Current working directory: {0}".format(os.getcwd()))
-os.chdir("dataset")
+os.chdir("../dataset")
 print("Current working directory: {0}".format(os.getcwd()))
 #first parquet file of mcvalid.text and mctev.txt
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
 pd.set_option('display.max_columns', None)
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('jets/1_2/jetmsbvar1_2.parquet', engine="pyarrow")
-print(df.head(2))
+df = pd.read_parquet('jets/1_2/jetmsbvar1_2edit.parquet', engine="pyarrow")
+print(df.head(5))
 
 
 
@@ -38,16 +38,46 @@ print(df.head(2))
 
 train, validate, test = np.split(df.sample(frac=1, random_state=42),
                        [int(.6*len(df)), int(.8*len(df))])
-X_train = train.iloc[:, 0:-1]
+
+columns = ['n_11', 'n_12', 'n_13', 'n_14', 'n_16', 'n_211', 'meanPt_211',
+       'meaneta_211', 'varPt_211', 'vareta_211', 'n_22', 'meanPt_22',
+       'meaneta_22', 'varPt_22', 'vareta_22', 'particle_multiplicity',
+       'transverse_momenta_sum', 'beam_thrust']
+columns1 = ['n_11', 'n_12', 'n_13', 'n_14', 'n_16', 'n_211', 'meanPt_211',
+       'meaneta_211', 'varPt_211', 'vareta_211', 'n_22', 'meanPt_22',
+       'meaneta_22', 'varPt_22', 'vareta_22', 'particle_multiplicity',
+       'transverse_momenta_sum', 'beam_thrust','jet_size5GeV']
+
+columns2 = ['n_11', 'n_12', 'n_13', 'n_14', 'n_16', 'n_211', 'meanPt_211',
+       'meaneta_211', 'varPt_211', 'vareta_211', 'n_22', 'meanPt_22',
+       'meaneta_22', 'varPt_22', 'vareta_22', 'particle_multiplicity',
+       'transverse_momenta_sum', 'beam_thrust','jet_size10GeV']
+
+columns3 = ['n_11', 'n_12', 'n_13', 'n_14', 'n_16', 'n_211', 'meanPt_211',
+       'meaneta_211', 'varPt_211', 'vareta_211', 'n_22', 'meanPt_22',
+       'meaneta_22', 'varPt_22', 'vareta_22', 'particle_multiplicity',
+       'transverse_momenta_sum', 'beam_thrust','jet_size15GeV']
+
+columns4 = ['n_11', 'n_12', 'n_13', 'n_14', 'n_16', 'n_211', 'meanPt_211',
+       'meaneta_211', 'varPt_211', 'vareta_211', 'n_22', 'meanPt_22',
+       'meaneta_22', 'varPt_22', 'vareta_22', 'particle_multiplicity',
+       'transverse_momenta_sum', 'beam_thrust','jet_size20GeV']
+
+     #  'jet_size10Gev', 'jet_size15Gev', 'jet_size20GeV', 'Status']
+
+
+
+X_train = train[columns4]
 y_train = train.iloc[:, -1]
 
-X_valid = validate.iloc[:, 0:-1]
+X_valid = validate[columns4]
 y_valid = validate.iloc[:,-1]
 
-X_test = test.iloc[:,0:-1]
+X_test = test[columns4]
 y_test = test.iloc[:,-1]
 
-numerical_cols = [cname for cname in X_train.columns if X_train[cname].dtype in ['int64', 'float64']]
+#numerical_cols = [cname for cname in X_train.columns if X_train[cname].dtype in ['int64', 'float64']]
+numerical_cols = columns4
 ct = ColumnTransformer([("only numeric", StandardScaler(), numerical_cols)], remainder='passthrough')
 X_train_scaled = ct.fit_transform(X_train)
 X_valid_scaled = ct.transform(X_valid)
@@ -60,7 +90,7 @@ X_test_scaled =  pd.DataFrame(X_test_scaled, columns = X_test.columns)
 def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(1, activation='sigmoid', input_shape=[22]),
+        layers.Dense(1, activation='sigmoid', input_shape=[19]),
 
     ])
 
@@ -120,7 +150,7 @@ def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_val
 def basic_model(activation, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(22, activation='relu', input_shape=[22]),
+        layers.Dense(19, activation='relu', input_shape=[19]),
         layers.Dense(1, activation='sigmoid'),
     ])
 

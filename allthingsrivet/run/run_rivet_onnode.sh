@@ -26,7 +26,12 @@ cat $JO
 #athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/mc15validconsolidated.txt
 #athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/mc1513tevconsolidated.txt
 
+# Px,Py;Pz,E
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/eventsignal7.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/eventbackground7.txt
 
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/eventsignal69.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/eventbackground69.txt
 
 #variance
 #dataset containing n_211,n_22,mean_pT,mean_eta,var_pt,var_eta
@@ -47,9 +52,22 @@ cat $JO
 #athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbbackground69.txt
 
 
-athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal1.txt
-athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal2.txt
+athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal1edit.txt
+athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbsignal2edit.txt
 #athena ${WORKDIR}/jO/runRivet.py -c "dataset=\" mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8448\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/msb/msbbackground3.txt
+
+#2) jets size
+
+#athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetssignal1.txt
+#athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetssignal2.txt
+
+
+#athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetsignal69.txt
+#athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetbackground69.txt
+
+
+#athena ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00\"" 2>&1 | tee  /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetsignal7.txt
+#athena  ${WORKDIR}/jO/runRivet.py -c "dataset=\"mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419\"" 2>&1 | tee /beegfs/bashir/standalone/software/allthingsrivet/logs/jets/jetbackground7.txt
 
 
 ls 
