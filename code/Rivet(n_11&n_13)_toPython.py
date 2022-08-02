@@ -16,7 +16,7 @@ import csv
 pd.set_option('display.max_columns', None)
 
 print("Current working directory: {0}".format(os.getcwd()))
-os.chdir("dataset/")
+os.chdir("../dataset/")
 print("Current working directory: {0}".format(os.getcwd()))
 
 
@@ -182,21 +182,27 @@ def to_parquet(signal_df, background_df, name):
     df.to_parquet(name + '.parquet', engine='pyarrow')
     return df
 
-# b7 = clean_text('background7var.txt','b7.txt')
-# s7 = clean_text('signal7var.txt','s7.txt')
+# b7 = clean_text('n11n13/7/background7var.txt','n11n13/7/b7.txt')
+# s7 = clean_text('n11n13/7/signal7var.txt','n11n13/7/s7.txt')
 # df_b7 = rivet_to_df(b7)
 # df_s7 = rivet_to_df(s7)
-# df7 = to_parquet(signal_df=df_s7,background_df=df_b7,name ='var7')
+# df7 = to_parquet(signal_df=df_s7,background_df=df_b7,name ='n11n13/7/var7n11n13')
 # print(df7.head())
 #
 #
-# b69 = clean_text('background69var.txt','b69.txt')
-# s69 = clean_text('signal69var.txt','s69.txt')
+# b69 = clean_text('n11n13/69/background69var.txt','n11n13/69/b69.txt')
+# s69 = clean_text('n11n13/69/signal69var.txt','n11n13/69/s69.txt')
 # df_b69 = rivet_to_df(b69)
 # df_s69 = rivet_to_df(s69)
-# df69 = to_parquet(signal_df=df_s69,background_df=df_b69,name ='var69')
+# df69 = to_parquet(signal_df=df_s69,background_df=df_b69,name ='n11n13/69/var69n11n13')
 # print(df69.head())
-
+#
+# b2 = clean_text('n11n13/1_2/background2var.txt','n11n13/1_2/b2.txt')
+# s1 = clean_text('n11n13/1_2/signal1var.txt','n11n13/1_2/s1.txt')
+# df_b2 = rivet_to_df(b2)
+# df_s1 = rivet_to_df(s1)
+# df12 = to_parquet(signal_df=df_s1,background_df=df_b2,name ='n11n13/1_2/var1_2n11n13')
+#
 
 
 
@@ -344,17 +350,62 @@ def to_parquet_1(signal_df, background_df, name):
     df.to_parquet(name + '.parquet', engine='pyarrow')
     return df
 
-b7 = clean_text('background7var.txt','b7.txt')
-s7 = clean_text('signal7var.txt','s7.txt')
+
+
+b7 = clean_text('n12/7/background7var.txt','n12/7/b7.txt')
+s7 = clean_text('n12/7/signal7var.txt','n12/7/s7.txt')
 df_b7 = rivet_to_df_1(b7)
 df_s7 = rivet_to_df_1(s7)
-df7 = to_parquet_1(signal_df=df_s7,background_df=df_b7,name ='var7')
+df7 = to_parquet_1(signal_df=df_s7,background_df=df_b7,name ='n12/7/var7n12')
 print(df7.head())
 
-b69 = clean_text('background69var.txt','b69.txt')
-s69 = clean_text('signal69var.txt','s69.txt')
+
+b69 = clean_text('n12/69/background69var.txt','n12/69/b69.txt')
+s69 = clean_text('n12/69/signal69var.txt','n12/69/s69.txt')
 df_b69 = rivet_to_df_1(b69)
 df_s69 = rivet_to_df_1(s69)
-df69 = to_parquet(signal_df=df_s69,background_df=df_b69,name ='var69')
+df69 = to_parquet_1(signal_df=df_s69,background_df=df_b69,name ='n12/69/var69n12')
 print(df69.head())
 
+b2 = clean_text('n12/1_2/background2var.txt','n12/1_2/b2.txt')
+s1 = clean_text('n12/1_2/signal1var.txt','n12/1_2/s1.txt')
+df_b2 = rivet_to_df_1(b2)
+df_s1 = rivet_to_df_1(s1)
+df12 = to_parquet_1(signal_df=df_s1,background_df=df_b2,name ='n12/1_2/var1_2n12')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# b7 = clean_text('background7var.txt','b7.txt')
+# s7 = clean_text('signal7var.txt','s7.txt')
+# df_b7 = rivet_to_df_1(b7)
+# df_s7 = rivet_to_df_1(s7)
+# df7 = to_parquet_1(signal_df=df_s7,background_df=df_b7,name ='var7')
+# print(df7.head())
+#
+# b69 = clean_text('background69var.txt','b69.txt')
+# s69 = clean_text('signal69var.txt','s69.txt')
+# df_b69 = rivet_to_df_1(b69)
+# df_s69 = rivet_to_df_1(s69)
+# df69 = to_parquet(signal_df=df_s69,background_df=df_b69,name ='var69')
+# print(df69.head())
+
+# b2 = clean_text('background7var.txt','b7.txt')
+# s1 = clean_text('signal7var.txt','s7.txt')
+# df_b2 = rivet_to_df(b7)
+# df_s1 = rivet_to_df(s7)
+#df12 = to_parquet(signal_df=df_s7,background_df=df_b7,name ='var7')
+# print(df7.head())

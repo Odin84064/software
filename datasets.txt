@@ -1,0 +1,13 @@
+mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8433     signal1
+mc15_13TeV.508653.aMCPy8EG_ttbar_dil.evgen.EVNT.e8435     background2
+
+
+
+444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17     signal69
+444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32    background69
+
+
+mc15_valid.950214.PhPy8_ttbar_CMCpwg_Monash_valid.evgen.EVNT.e8324_tid24450207_00        signal7
+mc15_13TeV.950507.PhH7EG_ttbar_hdamp258p75_nonallhad_cluster_valid.evgen.EVNT.e8419      background7
+
+
