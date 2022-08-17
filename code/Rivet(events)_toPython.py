@@ -615,9 +615,29 @@ def to_parquet_m2(signal_df, background_df, name):
 # dfb7 = rivet_to_df_events(b7)
 # df = to_parquet_events(signal_df=dfs7,background_df=dfb7,name='event/7/events7')
 
-s69 = clean_text('event/69/eventsignal69.txt','event/69/eventsignal69cleaned.txt')
-dfs69= rivet_to_df_events(s69)
+# s69 = clean_text('event/69/eventsignal69.txt','event/69/eventsignal69cleaned.txt')
+# dfs69= rivet_to_df_events(s69)
+#
+# b69 = clean_text('event/69/eventbackground69.txt','event/69/eventbackround69cleaned.txt')
+# dfb69 = rivet_to_df_events(b69)
+# df = to_parquet_events(signal_df=dfs69,background_df=dfb69,name='event/69/events69')
 
-b69 = clean_text('event/69/eventbackground69.txt','event/69/eventbackround69cleaned.txt')
-dfb69 = rivet_to_df_events(b69)
-df = to_parquet_events(signal_df=dfs69,background_df=dfb69,name='event/69/events69')
+# s1 = clean_text('event/1_2/eventsignal1.txt','event/1_2/eventsignal1cleaned.txt')
+# dfs1= rivet_to_df_events(s1)
+#
+# b2 = clean_text('event/1_2/eventbackground2.txt','event/1_2/eventbackround2cleaned.txt')
+# dfb2 = rivet_to_df_events(b2)
+# df = to_parquet_events(signal_df=dfs1,background_df=dfb2,name='event/1_2/events1_2')
+#
+
+#abs_eta
+s1 = clean_text('abseta_trans/1_2/absetasignal1.txt','s1.txt')
+df = rivet_to_df_events(s1)
+b2 = clean_text('abseta_trans/1_2/absetabackground2.txt','b2.txt')
+df = rivet_to_df(b2)
+s1 = only_commonids_modified(s1)
+b2 = only_commonids_modified(b2)
+#
+# #
+# df1 = to_parquet_modified(s1,b2,'abseta_trans/1_2/abseta1_2')
+
