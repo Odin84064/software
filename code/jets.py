@@ -178,7 +178,59 @@ def jet_msb_var(msbfile, varfile, jetfile):
     df = pd.concat(datasets, axis=1)
     print(df.head())
     return df
+def jet50_msb_var(msbfile, varfile, jetfile):
+    # a = clean_text('msbsignal7.txt','msbsignal7cleaned.txt')
+    file1 = msbfile + '.txt'
+    file2 = msbfile + 'cleaned.txt'
 
+    a = clean_text(file1, file2)
+
+    dfa = pd.read_csv(a, names=['particle_multiplicity', 'transverse_momenta_sum', 'beam_thrust'])
+    print(dfa.head())
+    # os.chdir("../")
+    file3 = varfile + '.txt'
+    file4 = varfile + 'cleaned.txt'
+    # file3 = '../' + paramfile + '.txt'
+    # file4 = '../' + paramfile + 'cleaned.txt'
+    b = clean_text(file3, file4)
+    dfb = rivet_to_df_1(b)
+    print(dfb.head())
+    file5 = jetfile + '.txt'
+    file6 = jetfile + 'cleaned.txt'
+    c = clean_text(file5, file6)
+    dfc = pd.read_csv(c, names=['jet_size5GeV', 'jet_size10GeV', 'jet_size15GeV', 'jet_size20GeV','jet_size50GeV'], skiprows=1)
+    print(dfc.head())
+    datasets = [dfb, dfa, dfc]
+    df = pd.concat(datasets, axis=1)
+    print(df.head())
+    return df
+
+def jet_pt_msb_var(msbfile, varfile, jetfile):
+    # a = clean_text('msbsignal7.txt','msbsignal7cleaned.txt')
+    file1 = msbfile + '.txt'
+    file2 = msbfile + 'cleaned.txt'
+
+    a = clean_text(file1, file2)
+
+    dfa = pd.read_csv(a, names=['particle_multiplicity', 'transverse_momenta_sum', 'beam_thrust'])
+    print(dfa.head())
+    # os.chdir("../")
+    file3 = varfile + '.txt'
+    file4 = varfile + 'cleaned.txt'
+    # file3 = '../' + paramfile + '.txt'
+    # file4 = '../' + paramfile + 'cleaned.txt'
+    b = clean_text(file3, file4)
+    dfb = rivet_to_df_1(b)
+    print(dfb.head())
+    file5 = jetfile + '.txt'
+    file6 = jetfile + 'cleaned.txt'
+    c = clean_text(file5, file6)
+    dfc = pd.read_csv(c, names=['jet_size5GeV','sumpt_5GeV', 'jet_size10GeV','sumpt_10GeV', 'jet_size15GeV','sumpt_15GeV', 'jet_size20GeV','sumpt_20GeV','jet_size50GeV','sumpt_50GeV'], skiprows=1)
+    print(dfc.head())
+    datasets = [dfb, dfa, dfc]
+    df = pd.concat(datasets, axis=1)
+    print(df.head())
+    return df
 
 def to_parquet_1(signal_df, background_df, name):
     '''
@@ -205,13 +257,25 @@ def to_parquet_1(signal_df, background_df, name):
     df.to_parquet(name + '.parquet', engine='pyarrow')
     return df
 
+#jets
+dfs1 = jet_msb_var('69/msbsignal69', '69/signal69var','69/jetsignal69')
+dfb2 = jet_msb_var('69/msbbackground69', '69/background69var','69/jetbackground69')
+df = to_parquet_1(dfs1,dfb2,'69/jetmsbvar69')
 
-#dfs1 = jet_msb_var('1_2/msbsignal1', '1_2/signal1var','1_2/jetsignal1')
-#dfb2 = jet_msb_var('1_2/msbbackground2', '1_2/background2var','1_2/jetbackground2')
-#df = to_parquet_1(dfs1,dfb2,'1_2/jetmsbvar1_2')
 
 
+#dfs1 = jet_msb_var('1_2/msbsignal1edit', '1_2/signal1var','1_2/jetsignal1')
+#dfb2 = jet_msb_var('1_2/msbbackground2edit', '1_2/background2var','1_2/jetbackground2')
+#df = to_parquet_1(dfs1,dfb2,'1_2/jetmsbvar1_2edit')
 
-dfs1 = jet_msb_var('1_2/msbsignal1edit', '1_2/signal1var','1_2/jetsignal1')
-dfb2 = jet_msb_var('1_2/msbbackground2edit', '1_2/background2var','1_2/jetbackground2')
-df = to_parquet_1(dfs1,dfb2,'1_2/jetmsbvar1_2edit')
+
+#jets50
+#dfs1 = jet50_msb_var('69/msbsignal69', '69/signal69var','69/jets50signal69')
+#dfb2 = jet50_msb_var('69/msbbackground69', '69/background69var','69/jets50background69')
+#df = to_parquet_1(dfs1,dfb2,'69/jets50msbvar69')
+
+
+#jets_pt
+#dfs1 = jet_pt_msb_var('1_2/msbsignal1', '1_2/signal1var','1_2/jetsptsignal1')
+#dfb2 = jet_pt_msb_var('1_2/msbbackground2', '1_2/background2var','1_2/jetsptbackground2')
+#df = to_parquet_1(dfs1,dfb2,'1_2/jetsptmsbvar1_2')

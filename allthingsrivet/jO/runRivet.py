@@ -15,7 +15,7 @@ from Rivet_i.Rivet_iConf import Rivet_i
 rivet=Rivet_i("Rivet")
 #rivet.AnalysisPath ="/lustre/hirsch/Athena/Rivet/v3.1.2/routines/"
 rivet.AnalysisPath = "/beegfs/bashir/standalone/software/allthingsrivet/routines/"
-rivet.Analyses += ["MC_DUMP_event"]
+rivet.Analyses += ["MC_newfeatures"]
 rivet.CrossSection = 1
 
 #ivet.HistoFile = "dummy.yoda"

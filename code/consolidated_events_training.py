@@ -1,7 +1,8 @@
 import pandas as pd
 import re
+import scipy
 import numpy as np
-
+from scipy.spatial import distance
 from tensorflow import keras
 import tensorflow as tf
 from tensorflow.keras import layers
@@ -14,6 +15,7 @@ from sklearn.metrics import confusion_matrix,accuracy_score,f1_score
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import roc_curve, roc_auc_score
 import os
+from scipy.stats import ks_2samp
 import time
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -28,7 +30,7 @@ print("Current working directory: {0}".format(os.getcwd()))
 #df = pd.read_parquet('100000eventsconsolidated.parquet', engine="pyarrow")
 pd.set_option('display.max_columns', None)
 #parquetfile of  444102.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.32 and 444101.PhPy8EG_A14_ttbar_hdamp258p75_fullrun_nonallhad.21.6.17 stored as signalconsolidated.txt and backgroundconsolidated.txt
-df = pd.read_parquet('jets/1_2/jetmsbvar1_2.parquet', engine="pyarrow")
+df = pd.read_parquet('jets_pt/7/jetsptmsbvar7.parquet', engine="pyarrow")
 print(df.head(2))
 
 
@@ -46,7 +48,7 @@ y_valid = validate.iloc[:,-1]
 
 X_test = test.iloc[:,0:-1]
 y_test = test.iloc[:,-1]
-
+no_of_columns = len(X_train.columns)
 numerical_cols = [cname for cname in X_train.columns if X_train[cname].dtype in ['int64', 'float64']]
 ct = ColumnTransformer([("only numeric", StandardScaler(), numerical_cols)], remainder='passthrough')
 X_train_scaled = ct.fit_transform(X_train)
@@ -57,10 +59,10 @@ X_valid_scaled = pd.DataFrame(X_valid_scaled, columns = X_valid.columns)
 X_test_scaled =  pd.DataFrame(X_test_scaled, columns = X_test.columns)
 
 
-def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
+def basic_perceptron(activation, nodes,learning_rate, X_train, y_train, X_valid, y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(1, activation='sigmoid', input_shape=[22]),
+        layers.Dense(1, activation='sigmoid', input_shape=[nodes]),
 
     ])
 
@@ -117,10 +119,10 @@ def basic_perceptron(activation, learning_rate, X_train, y_train, X_valid, y_val
                   history_df['val_binary_accuracy'].max()))
     return (model, history_df)
 
-def basic_model(activation, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
+def basic_model(activation,nodes, learning_rate, X_train, y_train, X_valid, Y_valid, batch_size, epochs):
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model = keras.Sequential([
-        layers.Dense(22, activation='relu', input_shape=[22]),
+        layers.Dense(nodes, activation='relu', input_shape=[nodes]),
         layers.Dense(1, activation='sigmoid'),
     ])
 
@@ -293,7 +295,7 @@ def plot_output_predictions(model):
 def plot_output_distribution(model):
     predict = model.predict(X_train_scaled)
     predict_df = pd.DataFrame(predict, columns=['Predict'])
-    y = pd.DataFrame(y_train)
+    y = pd.DataFrame(y_test)
     y.reset_index(drop=True, inplace=True)
     final = pd.concat([y, predict_df], axis=1)
     one = final[final['Status'] == 1]
@@ -336,6 +338,7 @@ def plot_output_distribution(model):
     plt.savefig(pat2)
     plt.show()
     plt.close()
+    return predict_df,zero,one
 
 def f1_accuracy_confusion(model):
         predict = model.predict(X_test_scaled)
@@ -461,6 +464,46 @@ def roc_auc_curve_two(model, perceptron):
 
         plt.close()
 
+
+def get_minkowski(model):
+    predict = model.predict(X_test_scaled)
+    predict_df = pd.DataFrame(predict, columns=['Predict'])
+    y = pd.DataFrame(y_test)
+    y.reset_index(drop=True, inplace=True)
+    final = pd.concat([y, predict_df], axis=1)
+    one = final[final['Status'] == 1]
+    zero = final[final['Status'] == 0]
+
+    data1 = one['Predict']
+    data0 = zero['Predict']
+
+    xb = plt.hist(data0)[1]
+
+    xs = plt.hist(data1)[1]
+    ms = distance.minkowski(xb, xs)
+    return ms
+def get_ks(model):
+    predict = model.predict(X_test_scaled)
+    predict_df = pd.DataFrame(predict, columns=['Predict'])
+    y = pd.DataFrame(y_test)
+    y.reset_index(drop=True, inplace=True)
+    final = pd.concat([y, predict_df], axis=1)
+    one = final[final['Status'] == 1]
+    zero = final[final['Status'] == 0]
+
+    data1 = one['Predict']
+    data0 = zero['Predict']
+    data1_norm = (data1-data1.min())/(data1.max() - data1.min())
+    data0_norm = (data0 - data0.min()) / (data0.max() - data0.min())
+
+    xb = plt.hist(data0,bins=100000)[1]
+
+    xs = plt.hist(data1,bins=100000)[1]
+
+    ks = ks_2samp(data1_norm, data0_norm)
+    ks1 = ks_2samp(xb,xs)
+    return ks,ks1,one, zero, final, predict_df
+
 #
 
 
@@ -489,7 +532,8 @@ def roc_auc_curve_two(model, perceptron):
 
 
 
-tan_fun = basic_model('tanh',0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,500)
+tan_fun = basic_model('tanh',no_of_columns,0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,500)
+history = tan_fun[1]
 #
 #
 # one,zero,final,predict = plot_output_predictions(tan_fun[0])
@@ -501,11 +545,15 @@ tan_fun = basic_model('tanh',0.001,X_train_scaled,y_train,X_valid_scaled,y_valid
 # roc_auc_curve(tan_fun[0])
 
 ##perceptron
-perceptron = basic_perceptron('tanh',0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,500)
+perceptron = basic_perceptron('tanh',no_of_columns,0.001,X_train_scaled,y_train,X_valid_scaled,y_valid,1024,500)
 
 
 f1,accuracy,sensitivity,specificity = f1_accuracy_confusion(tan_fun[0])
 
 roc_auc_curve_two(tan_fun[0],perceptron[0])
+predict,zero,one =plot_output_distribution(tan_fun[0])
 
-plot_output_distribution(tan_fun[0])
+#ms= get_minkowski(tan_fun[0])
+#ks,ks1,one, zero, final, predict_df = get_ks(tan_fun[0])
+
+
